@@ -1,0 +1,7 @@
+myenv/
+board1-*/
+board2-*/
+__pycache__/
+*.mp4
+*.json
+jsons/
