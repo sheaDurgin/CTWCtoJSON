@@ -1,6 +1,6 @@
 # Tetris Game Board Extractor
 
-This repository generates JSON data containing Tetris game boards from the Classic Tetris World Championship (CTWC) 2023 games.
+This repository generates JSON data containing Tetris game boards from the Classic Tetris World Championship (CTWC) games. (only tested on 2023 so far)  
 
 ## Installation
 
