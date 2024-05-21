@@ -34,7 +34,7 @@ This repository generates JSON data containing Tetris game boards from the Class
 
 3. Filter out unnecessary images and extract board states:
     ```bash
-    python filter.py <dir_name>
+    python filter_images.py <dir_name>
     ```
 
 4. Write the extracted board states to a JSON file:

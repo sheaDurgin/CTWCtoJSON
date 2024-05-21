@@ -1,7 +1,7 @@
 myenv/
-board1-*/
-board2-*/
+boards/
 __pycache__/
 *.mp4
-*.json
-jsons/
+all_boards.json
+videos/
+old/
