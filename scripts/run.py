@@ -6,14 +6,16 @@ from filter_images_and_create_json import filter_main
 
 if __name__ == '__main__':
     video_path = sys.argv[1]
-    boards_dir_name = sys.argv[2]
+    year = sys.argv[2]
+    boards_dir_name = sys.argv[3]
 
     print("Converting video to board images")
-    board_dir_path1, board_dir_path2 = convert_video_to_images(video_path, boards_dir_name)
+    board_dir_path1, board_dir_path2 = convert_video_to_images(video_path, year, boards_dir_name)
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    reference_border_path = os.path.join(script_dir, 'helper', 'gray_border.png')
+    border_name = f"{year}_gray_border.png"
+    reference_border_path = os.path.join(script_dir, 'helper', border_name)
     reference_border = cv2.cvtColor(cv2.imread(reference_border_path), cv2.COLOR_BGR2GRAY)
 
     known_dark_image_path = os.path.join(script_dir, 'helper', 'black_center_region.jpg')

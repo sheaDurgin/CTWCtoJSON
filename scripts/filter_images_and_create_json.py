@@ -76,12 +76,15 @@ def get_board_files(image_dir_name, reference_border, known_dark_image):
 def filter_main(image_dir_name, reference_border, known_dark_image):
     board_files = get_board_files(image_dir_name, reference_border, known_dark_image)
     write_boards_to_master_json(board_files, image_dir_name)
-
+    
 if __name__ == '__main__':
     image_dir_name = sys.argv[1]
+    year = sys.argv[2]
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    reference_border_path = os.path.join(script_dir, 'helper', 'gray_border.png')
+    border_name = f"{year}_gray_border.png"
+    reference_border_path = os.path.join(script_dir, 'helper', border_name)
     reference_border = cv2.cvtColor(cv2.imread(reference_border_path), cv2.COLOR_BGR2GRAY)
 
     known_dark_image_path = os.path.join(script_dir, 'helper', 'black_center_region.jpg')

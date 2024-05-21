@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <ctwc_youtube_link>"
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <ctwc_youtube_link> <year>"
     exit 1
 fi
 
@@ -28,8 +28,10 @@ VIDEO_PATH="$VIDEO_DIR/$VIDEO_PATH"
 BOARDS_DIR="./boards"
 mkdir -p "$BOARDS_DIR"
 
+YEAR="$2"
+
 # run python script to write/append all_boards.json
-python scripts/run.py "$VIDEO_PATH" "$BOARDS_DIR"
+python scripts/run.py "$VIDEO_PATH" "$YEAR" "$BOARDS_DIR"
 
 if [ -d "$VIDEO_DIR" ]; then
     # Remove the directory and its contents
