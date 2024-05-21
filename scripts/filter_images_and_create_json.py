@@ -57,7 +57,7 @@ def get_board_files(image_dir_name, reference_border, known_dark_image):
     wait = False
     cnt = 0
     for filename in files[1:]:
-        img_path = image_dir_name + filename
+        img_path = os.path.join(image_dir_name, filename)
         if wait:
             cnt += 1
             if cnt > 8:

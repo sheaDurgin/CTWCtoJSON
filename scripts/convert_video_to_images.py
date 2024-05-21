@@ -48,14 +48,9 @@ def extract_frames(video_path, output_folder1, output_folder2):
     video_capture.release()
     print(f"Extracted {frame_number} frames to '{output_folder1} and {output_folder2}'.")
 
-def convert_video_to_images(video_path):
-    boards_dir_name = 'boards/'
-
-    if not os.path.exists(boards_dir_name):
-        os.makedirs(boards_dir_name)
-
-    output_folder1 = f"{boards_dir_name}board1-{video_path.split('/')[-1].split('.')[0]}/"
-    output_folder2 = f"{boards_dir_name}board2-{video_path.split('/')[-1].split('.')[0]}/"
+def convert_video_to_images(video_path, boards_dir_name):
+    output_folder1 = os.path.join(boards_dir_name, 'board1')
+    output_folder2 = os.path.join(boards_dir_name, 'board2')
     extract_frames(video_path, output_folder1, output_folder2)
 
     return output_folder1, output_folder2
@@ -63,4 +58,9 @@ def convert_video_to_images(video_path):
 if __name__ == '__main__':
     video_path = sys.argv[1]
 
-    convert_video_to_images(video_path)
+    boards_dir_name = 'boards/'
+
+    if not os.path.exists(boards_dir_name):
+        os.makedirs(boards_dir_name)
+
+    convert_video_to_images(video_path, boards_dir_name)

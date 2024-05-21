@@ -2,47 +2,17 @@
 
 This repository generates JSON data containing Tetris game boards from the Classic Tetris World Championship (CTWC) games. (only tested on 2023 so far)  
 
-## Installation
-
-1. Set up a virtual environment:
-    ```bash
-    python3 -m venv myenv
-    . myenv/bin/activate
-    ```
-
-2. Install required packages:
-    ```bash
-    pip install yt-dlp opencv-python numpy scikit-image
-    ```
-
 ## Usage
 
-1. Download the CTWC 2023 video from YouTube using `yt-dlp`:
+1. In the terminal, run the following
     ```bash
-    yt-dlp <ctwc2023video>
+    ./run.sh <ctwc_youtube_link>
     ```
    For example:
     ```bash
-    yt-dlp https://youtu.be/ppOupG_aNBA?si=kbqonRSYMoKjwxWX
-    ```
-   Rename the downloaded video to something concise.
-
-2. Extract Tetris game boards from the downloaded video:
-    ```bash
-    python convert_video_to_images.py <mp4_file>
+    ./run.sh https://youtu.be/ppOupG_aNBA?si=kbqonRSYMoKjwxWX
     ```
 
-3. Filter out unnecessary images and extract board states:
-    ```bash
-    python filter_images.py <dir_name>
-    ```
+2. Once the script has finished running, all_boards.json will contain board states from all games found in the video
 
-4. Write the extracted board states to a JSON file:
-    ```bash
-    python write_boards_to_json.py <dir_name/board_states.txt>
-    ```
-
-5. Generate JSON of all Tetris game boards:
-    ```bash
-    python create_all_boards_json.py
-    ```
+3. Each run of the script will append to all_boards.json, not overwrite it
