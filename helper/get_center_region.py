@@ -1,8 +1,12 @@
 import cv2
 import sys
 import numpy as np
+import os
 
-def is_brighter_than_dark(image, known_dark_image_path='black_center_region.jpg'):
+def is_brighter_than_dark(image):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    known_dark_image_path = os.path.join(script_dir, 'black_center_region.jpg')
+    
     known_dark_image = cv2.imread(known_dark_image_path)
     known_dark_image = cv2.cvtColor(known_dark_image, cv2.COLOR_BGR2GRAY)
 

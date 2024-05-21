@@ -28,7 +28,10 @@ def get_gray_border(image_filename):
     cv2.imwrite(new_filename, gray_border)
     return cv2.cvtColor(cv2.imread(new_filename), cv2.COLOR_BGR2GRAY), new_filename
 
-def compare_borders(target_image_path, reference_border_path='gray_border.png', threshold=0.60):
+def compare_borders(target_image_path, threshold=0.60):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    reference_border_path = os.path.join(script_dir, 'gray_border.png')
+    
     reference_border = cv2.cvtColor(cv2.imread(reference_border_path), cv2.COLOR_BGR2GRAY)
     target_border, delete_filename = get_gray_border(target_image_path)
 
