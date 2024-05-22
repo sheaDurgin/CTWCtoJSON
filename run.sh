@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <ctwc_youtube_link> <year>"
-    exit 1
+	echo "Usage: $0 <ctwc_youtube_link> <year>"
+	exit 1
 fi
 
 # virtual environment
@@ -34,14 +34,13 @@ YEAR="$2"
 python scripts/run.py "$VIDEO_PATH" "$YEAR" "$BOARDS_DIR"
 
 if [ -d "$VIDEO_DIR" ]; then
-    # Remove the directory and its contents
-    rm -r "$VIDEO_DIR"
-    echo "'$VIDEO_DIR' and its contents successfully removed."
+	# Remove the directory and its contents
+	rm -r "$VIDEO_DIR"
+	echo "'$VIDEO_DIR' and its contents successfully removed."
 fi
 
 if [ -d "$BOARDS_DIR" ]; then
-    # Remove the directory and its contents
-    rm -r "$BOARDS_DIR"
-    echo "'$BOARDS_DIR' and its contents successfully removed."
+	# Remove the directory and its contents
+	rm -r "$BOARDS_DIR"
+	echo "'$BOARDS_DIR' and its contents successfully removed."
 fi
-
